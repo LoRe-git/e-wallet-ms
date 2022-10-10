@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name="WALLET-INFO", url="localhost:9091")
+@FeignClient(name="WALLET-INFO")
 public interface WalletInfoServiceProxy {
 	@GetMapping("/wallet/{id}")
 	public WalletInfoDto getWalletById(@PathVariable("id") Long id);

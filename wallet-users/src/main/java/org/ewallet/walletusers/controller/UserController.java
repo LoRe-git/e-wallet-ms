@@ -27,7 +27,6 @@ public class UserController {
 	
 	@Autowired
 	WalletInfoServiceProxy walletInfoServiceProxy;
-	//	private RestTemplate restTemplate;
 	
 	private static List<UserDto> USERS = new ArrayList<>();
 	static {
@@ -39,7 +38,6 @@ public class UserController {
 	@Produces(MediaType.APPLICATION_JSON_VALUE)
 	public UserDto getUser(@PathVariable("id") Long id) throws Exception {
 		List<WalletInfoDto> wallets = new ArrayList<>();
-//		wallets.add(restTemplate.getForObject("http://WALLET-INFO/wallet/1", WalletInfoDto.class));
 		wallets.add(walletInfoServiceProxy.getWalletById(id));
 		USERS.get(id.intValue()-1).setWallets(wallets);
 		return USERS.get(id.intValue()-1);

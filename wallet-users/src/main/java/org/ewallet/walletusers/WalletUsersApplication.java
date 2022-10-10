@@ -2,11 +2,11 @@ package org.ewallet.walletusers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-//@EnableEurekaClient
-//@LoadBalancerClient(name="WALLET-INFO")
+@EnableEurekaClient
 @EnableFeignClients("org.ewallet.walletusers.feign")
 public class WalletUsersApplication {
 
@@ -14,8 +14,4 @@ public class WalletUsersApplication {
 		SpringApplication.run(WalletUsersApplication.class, args);
 	}
 
-//	@Bean
-//	public RestTemplate getRestTemplate(RestTemplateBuilder builder) {
-//	    return builder.build();
-//	}
 }
